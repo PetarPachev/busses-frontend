@@ -1,0 +1,22 @@
+<div class="responsive-flex-wrapper">
+  <div class="form-wrapper">
+    <div class="form-title">Register</div>
+
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <label for="register-email">Email address</label>
+        <input type="email" class="form-control" id="register-email" placeholder="Email" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="register-passowrd">Password</label>
+        <input type="password" class="form-control" id="register-passowrd" placeholder="Password" formControlName="password" />
+      </div>
+      <div class="form-group">
+        <label for="register-confirm-passowrd">Confirm Password</label>
+        <input type="password" class="form-control" id="register-confirm-passowrd" placeholder="Confirm Password" formControlName="confirmPassword" />
+      </div>
+      <button class="btn btn-primary float-right" [disabled]="!registerForm.valid" (click)="onRegister()">Register</button>
+      <button class="btn btn-success float-right mr-2" [routerLink]="['/login']">Login</button>
+    </form>
+  </div>
+</div>

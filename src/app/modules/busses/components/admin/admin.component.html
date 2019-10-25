@@ -1,0 +1,133 @@
+<!-- <form>
+  <div class="row">
+    <div class="col-8">
+      <input #lineInput type="text" class="form-control" placeholder="Line Title" />
+    </div>
+    <div class="col-4">
+      <button type="submit" class="btn btn-block btn-success" (click)="onCreateLine()">Create Line</button>
+    </div>
+  </div>
+</form>
+
+<h3>Lines</h3>
+<div class="row" *ngFor="let line of lines">
+  <div class="col-12">Line {{ line.title }}</div>
+</div> -->
+
+<form>
+  <div class="row">
+    <div class="col-6">
+      <input #lineInput type="text" class="form-control" placeholder="Line Title" />
+    </div>
+    <div class="col-6">
+      <button type="submit" class="btn float-right btn-success" (click)="onCreateLine()">Create Line</button>
+    </div>
+  </div>
+</form>
+<div class="rows-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <h4>Lines</h4>
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let line of lines">
+    <div class="col-10">{{ line.title }}</div>
+    <div class="col-2">
+      <div class="float-right">
+        <button type="button" class="btn btn-danger btn-round" (click)="onDeleteLine(line._id)">
+          <div class="responsive-flex-wrapper">
+            <i class="material-icons">delete</i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form>
+  <div class="row">
+    <div class="col-6">
+      <input #busInput type="text" class="form-control" placeholder="Bus Title" />
+    </div>
+    <div class="col-4">
+      <ng-select #busLineSelect [items]="lines" [bindLabel]="'title'" [placeholder]="'Line'" (change)="currentlySelectedBusLine = $event">
+        <ng-template ng-option-tmp let-item="item">
+          <div>{{ item.title }}</div>
+        </ng-template>
+      </ng-select>
+    </div>
+    <div class="col-2">
+      <button type="submit" class="btn float-right btn-success" (click)="onCreateBus()">Create Bus</button>
+    </div>
+  </div>
+</form>
+<div class="rows-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <h4>Busses</h4>
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let bus of busses">
+    <div class="col-10">{{ bus.title }}</div>
+    <div class="col-2">
+      <div class="float-right">
+        <button type="button" class="btn btn-danger btn-round" (click)="onDeleteBus(bus._id)">
+          <div class="responsive-flex-wrapper">
+            <i class="material-icons">delete</i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rows-wrapper">
+  <div class="row">
+    <div class="col-6">
+      <h4>Users</h4>
+    </div>
+    <div class="col-4">
+      <ng-select [items]="lines" [bindLabel]="'title'" [placeholder]="'Line'" (change)="currentlySelectedBusFilterLine = $event">
+        <ng-template ng-option-tmp let-item="item">
+          <div>{{ item.title }}</div>
+        </ng-template>
+      </ng-select>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+  <div class="row" *ngFor="let user of users">
+    <div class="col-6">{{ user.local.email }}</div>
+    <div class="col-4">
+      <ng-select [items]="filteredBussesByLine" [bindLabel]="'title'" [placeholder]="'Bus'" (change)="onBusAssignToUser(user, $event)">
+        <ng-template ng-option-tmp let-item="item">
+          <div>{{ item.title }}</div>
+        </ng-template>
+      </ng-select>
+    </div>
+    <div class="col-2">
+      <div class="float-right">
+        <button type="button" class="btn btn-danger btn-round">
+          <div class="responsive-flex-wrapper">
+            <i class="material-icons">delete</i>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="form-group">
+  <label>{{'daily_meals' | localise}}</label>
+  <ng-select [items]="dailyMeals"
+    [(ngModel)]="currentlySelectedBusByDriverId[user._id]"
+    [bindLabel]="'local.email'"
+    [placeholder]="Bus"
+    (change)="currentlySelectedBusByDriverId[user._id] = $event._id">
+    <ng-template ng-option-tmp let-item="item">
+      <div>{{item.local.email}}</div>
+    </ng-template>
+  </ng-select>
+</div> -->

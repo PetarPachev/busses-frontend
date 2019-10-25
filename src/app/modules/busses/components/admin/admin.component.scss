@@ -1,0 +1,46 @@
+:host {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+$border-color: #ededed;
+
+.btn-round {
+  border-radius: 50%;
+  width: 38px;
+}
+
+form {
+  padding: 10px;
+  border-bottom: 1px solid #ededed;
+}
+
+.rows-wrapper {
+  .row {
+    &:hover {
+      background-color: #dcdcdc2e;
+    }
+  }
+
+  .row {
+    border-bottom: 1px solid $border-color;
+    padding: 8px;
+
+    h4 {
+      margin: 0;
+    }
+
+    > div {
+      &:first-child {
+        font-size: 18px;
+        line-height: 38px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
